@@ -8,4 +8,4 @@ def hijo(grafo, nodo, indice):
             hijos.append(j)
         if j==nodo:
             hijos.append(i)
-    return hijos
+    return hijos[indice]

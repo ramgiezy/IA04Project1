@@ -7,13 +7,16 @@ from verifica import verifica
 def DPS(grafo, nodoActual, nodosRequeridos, nodosVisitados, costoTotal, nodoPasado):
     nodosVisitados.append(nodoActual)
     if verifica(nodosVisitados, nodosRequeridos) == 1:
-        return([nodosVisitados, costoTotal])
+        return [nodosVisitados, costoTotal]
     soluciones=[]
     for i in range(sizeCH(grafo, nodoActual)):
-        if (hijo(grafo, nodoActual, i)!=nodoPasado):
-            #costo=grafo.get_edge_data(nodoActual, hijo(grafo, nodoActual, i)["weight"])
-            costoTotal=costoTotal+grafo.get_edge_data(nodoActual, hijo(grafo, nodoActual, i)).get("weight")[0]
-            #costoTotal=costoTotal+costo.get
-            solucion=DPS(grafo, hijo(grafo, nodoActual, i), nodosRequeridos, nodosVisitados, costoTotal, nodoActual)
+        newHijo=hijo(grafo, nodoActual, i)
+        bandera=0
+        for k in nodosVisitados:
+            if newHijo==k:
+                bandera=1
+        if newHijo!=nodoPasado and bandera!=1:
+            costoTotal=costoTotal+grafo.get_edge_data(nodoActual, newHijo)["weight"]
+            solucion=DPS(grafo, newHijo, nodosRequeridos, nodosVisitados.copy(), costoTotal, nodoActual)
             soluciones.append(solucion)
     return compareSol(soluciones)

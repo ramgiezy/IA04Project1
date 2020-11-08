@@ -2,6 +2,7 @@ import networkx as nx
 from CreateGraph import crearGrafo
 import matplotlib.pyplot as plt
 from Search import DPS
+import time
 
 
 map = crearGrafo(0)
@@ -13,9 +14,11 @@ nx.draw_networkx_edge_labels(map,pos,edge_labels=labels)
 nx.draw_networkx_labels(map, pos)
 plt.savefig("grafo.png")
 
-Requeridos=["Hof", "Gera", "Bamberg"]
-inicio="Frankfurt"
+#Requeridos=["Hof", "Gera", "Bamberg"]
+Requeridos=["Hof", "Gera", "Frankfurt"]
+inicio="Hof"
 
-#print(map.get_edge_data("Hof", "Gera")["weight"])
+start_time = time.time()
 solucion=DPS(map, inicio, Requeridos, [], 0, "")
 print(solucion)
+print(time.time() - start_time)
