@@ -1,4 +1,4 @@
-
+#Función que verifica si ya se han visitado todos los nodos requeridos en el TSP
 
 def verifica(nodosVisitados, nodosRequeridos):
     contador=0

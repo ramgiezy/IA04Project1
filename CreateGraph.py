@@ -1,3 +1,5 @@
+#Función de creación de grafo con librería NetworkX. 
+#Número de opciones de grafo: 4
 import networkx as nx 
 
 def crearGrafo(numGrafo):

@@ -1,3 +1,4 @@
+#Función que devuelve la cantidad de hijos que un nodo tiene dentro de un grafo dado.
 import networkx as nx 
 
 def sizeCH(grafo, nodo):

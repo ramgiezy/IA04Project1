@@ -1,3 +1,14 @@
+##############Problema del agente viajero resuelto con búsqueda en profundidad##############
+#Autores: 
+# Jorge Alberto Alcaraz Cardenas
+# Giezy Alberto Ramírez Rivera
+# Diana Paola Sanjuan Aldape
+#Programa que muestra la mejor solución del problema del agente viajero (TSP) conforme al grafo seleccionado
+#y las condiciones iniciales dadas
+#Materia: Inteligencia artificial
+#Grupo: 4
+#Equipo 8
+
 import networkx as nx 
 from CreateGraph import crearGrafo
 import matplotlib.pyplot as plt
@@ -6,7 +17,7 @@ import time
 
 #Experimento 1
 map = crearGrafo(0)
-
+#sección para dibujar el grafo y guardarlo como .png
 pos=nx.get_node_attributes(map,'pos')
 nx.draw(map,pos)
 labels = nx.get_edge_attributes(map,'weight')
@@ -15,9 +26,9 @@ nx.draw_networkx_labels(map, pos)
 plt.savefig("grafo.png")
 plt.clf()
 
-Requeridos=["Hof", "Gera", "Frankfurt"]
+Requeridos=["Hof", "Gera", "Frankfurt"] 
 inicio="Hof"
-start_time = time.time()
+start_time = time.time() #para contar tiempo de ejecución
 solucion=DPS(map, inicio, Requeridos, [], 0, "")
 print("Esperimento 1. Solución: ",solucion)
 print("Tiempo de ejecución: ",time.time() - start_time)

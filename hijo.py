@@ -1,3 +1,4 @@
+#Función que devuelve el hijo de un grafo dado conforme al índice proporcionado
 import networkx as nx 
 
 def hijo(grafo, nodo, indice):
